@@ -64,7 +64,25 @@ public class TestBMICalculatorIT {
             String jsonResponse = response.readEntity(String.class);
             assertThat(jsonResponse, CoreMatchers.containsString("Result is 22"));
 
-            assertThat(jsonResponse, CoreMatchers.containsString("normal"));
+            assertThat(jsonResponse, CoreMatchers.containsString("Normal"));
+            _logger.info("IT1 test passed");
+        }
+    }
+
+    @Test
+    public void testCaclulate3() {
+
+        // Make a HTTP GET request to retrieve the last created Parolee.
+        try (Response response = client.target(WEB_URI+"?weight=75&height=1.75").request().get()) {
+
+            // Check that the HTTP response code is 200 OK.
+            int responseCode = response.getStatus();
+            assertEquals(200, responseCode);
+
+            String jsonResponse = response.readEntity(String.class);
+            assertThat(jsonResponse, CoreMatchers.containsString("Result is 24"));
+
+            assertThat(jsonResponse, CoreMatchers.containsString("Normal"));
             _logger.info("IT1 test passed");
         }
     }
