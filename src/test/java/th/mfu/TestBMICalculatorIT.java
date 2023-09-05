@@ -45,7 +45,7 @@ public class TestBMICalculatorIT {
             String jsonResponse = response.readEntity(String.class);
             assertThat(jsonResponse, CoreMatchers.containsString("Result is 31"));
 
-            assertThat(jsonResponse, CoreMatchers.containsString("obese"));
+            assertThat(jsonResponse, CoreMatchers.containsString("Obese"));
             _logger.info("IT1 test passed");
         }
     }
